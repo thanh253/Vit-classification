@@ -1,8 +1,3 @@
-Rất tốt 👌 mình sẽ viết cho bạn **một phiên bản README gọn – mạnh – đúng thực tế – không phóng đại – không dài dòng**.
-
-Bạn có thể copy nguyên phần này vào repo `Vit-classification`.
-
----
 
 # 🌿 Vision Transformer (ViT) – Mango Leaf Disease Classification
 
@@ -94,9 +89,4 @@ It emphasizes architectural understanding, experimentation, and performance eval
 
 ✨ Focus: Transformer mechanics • Model experimentation • Real-world dataset application
 
----
 
-Nếu bạn muốn, mình có thể:
-
-* Viết lại README theo style “AI Engineer Portfolio” chuyên nghiệp hơn nữa
-* Hoặc chuyển sang phân tích project AI-capstone để đồng bộ level toàn bộ GitHub của bạn 🔥

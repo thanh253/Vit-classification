@@ -1,76 +1,102 @@
-<img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=salesp07.salesp07" />
+Rất tốt 👌 mình sẽ viết cho bạn **một phiên bản README gọn – mạnh – đúng thực tế – không phóng đại – không dài dòng**.
 
-<h1 align="center">
-    <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Hi+There!+👋;+I'm+Tiến+Thành!;" />
-</h1>
+Bạn có thể copy nguyên phần này vào repo `Vit-classification`.
 
-<h3 align="center">A passionate software developer from Canada 🇨🇦</h3>
+---
 
-<br/>
+# 🌿 Vision Transformer (ViT) – Mango Leaf Disease Classification
 
-<div align="center">
- 
- 🔭 I’m currently working on **a marketplace**
- 
- 🌱 I’m currently learning **Docker, Supabase, AWS**
+## 📌 Overview
 
-💬 Ask me about **Node.js, React, Firebase... or anything [here](https://github.com/salesp07/salesp07/issues)**
+This project implements a **Vision Transformer (ViT) from scratch using TensorFlow/Keras** to classify mango leaf diseases across **9 classes**.
 
-⚡ Fun fact **Game of Thrones Night's Watch cloaks are made from Ikea rugs**
+The goal is to explore how Transformer-based architectures perform in agricultural image classification compared to traditional CNN models.
 
- </div>
- 
-<div align="center"> 
-  <a href="mailto:pedro.sales.muniz@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-333333?style=for-the-badge&logo=gmail&logoColor=red" />
-  </a>
-  <a href="https://linkedin.com/in/pedro-sales-muniz" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank" />
-  </a>
-  <a href="https://salesp07.github.io" target="_blank">
-     <img src="https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white" target="_blank" /> <!-- sqlite, safari, google-chrome are other good icon options -->
-  </a>
-</div>
+The model achieved:
 
- <hr/>
- 
-<h2 align="center">⚒️ Languages-Frameworks-Tools ⚒️</h2>
-<br/>
-<div align="center">
-    <img src="https://skillicons.dev/icons?i=react,bootstrap,mui,html,css,vscode,github,figma,tailwind,git,r" />
-    <img src="https://skillicons.dev/icons?i=nodejs,python,javascript,typescript,express,firebase,mongodb,c,java,nextjs,mysql,flask" /><br>
-</div>
+> 🎯 **96% Test Accuracy** on 4,111 images
+> 🚀 Outperformed VGG-16 and EfficientNet baselines
 
-<br/>
-<hr/>
+---
 
-<div align="center">
-  <h2>🐍 My Contributions 🐍</h2>
-  <br>
-  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg" />
-  
-  <br/><br/><br/>
-</div>
+## 🧠 Model Architecture
 
-<hr/>
+The Vision Transformer was manually implemented (no pretrained backbone):
 
-<h2 align="center">⚡ Stats ⚡</h2>
-<br>
-<div align=center>
-  <img width=390 src="https://github-readme-streak-stats-salesp07.vercel.app/?user=salesp07&count_private=true&theme=react&border_radius=10" alt="streak stats"/>
-  <img width=390 src="https://github-readme-stats-salesp07.vercel.app/api?username=salesp07&count_private=true&show_icons=true&theme=react&rank_icon=github&border_radius=10" alt="readme stats" />
-  <br/>
-  <img width=325 align="center" src="https://github-readme-stats-salesp07.vercel.app/api/top-langs/?username=salesp07&hide=HTML&langs_count=8&layout=compact&theme=react&border_radius=10&size_weight=0.5&count_weight=0.5&exclude_repo=github-readme-stats" alt="top langs" />
-</div>
+* Patch extraction using `tf.image.extract_patches`
+* Learnable patch embedding (Dense projection)
+* Positional Embedding
+* Multi-Head Self Attention
+* Residual connections + Layer Normalization
+* MLP classification head (Softmax)
 
-<br/><br/>
+This implementation focuses on understanding the internal mechanics of ViT rather than relying on pretrained models.
 
-<hr/>
+---
 
-<br/>
+## 📊 Dataset
 
-<div align="center">
-<a href='https://ko-fi.com/V7V4RAK9C' target='_blank'><img height='64' style='border:0px;height:64px;' src='https://storage.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
-</div>
+* Total images: **4,111**
+* Classes: **9** (8 diseases + VN Normal Leaf)
+* Data sources:
 
-<br/>
+  * MangoLeafBD dataset
+  * Self-collected images in Vietnam
+* Train/Val/Test split: 70% / 15% / 15%
+
+Data augmentation applied:
+
+* Random Flip
+* Random Rotation
+* Random Zoom
+* Normalization
+
+---
+
+## ⚙️ Training Setup
+
+* Optimizer: **AdamW**
+* Learning rate scheduling: Exponential Decay
+* Loss: SparseCategoricalCrossentropy
+* EarlyStopping & ModelCheckpoint
+* Evaluation: Accuracy, Precision, Recall, F1-score, Confusion Matrix
+
+---
+
+## 📈 Results
+
+| Model          | Test Accuracy |
+| -------------- | ------------- |
+| VGG-16         | 73%           |
+| EfficientNet   | 75.6%         |
+| **Custom ViT** | **96%**       |
+
+The Transformer-based architecture demonstrated strong generalization across disease categories and showed improved robustness compared to CNN baselines.
+
+---
+
+## 🛠 Tech Stack
+
+* TensorFlow / Keras
+* NumPy
+* Matplotlib
+* Scikit-learn
+
+---
+
+## 🎓 Project Context
+
+This project was developed as part of an academic research study on applying Vision Transformers to agricultural disease detection.
+
+It emphasizes architectural understanding, experimentation, and performance evaluation.
+
+---
+
+✨ Focus: Transformer mechanics • Model experimentation • Real-world dataset application
+
+---
+
+Nếu bạn muốn, mình có thể:
+
+* Viết lại README theo style “AI Engineer Portfolio” chuyên nghiệp hơn nữa
+* Hoặc chuyển sang phân tích project AI-capstone để đồng bộ level toàn bộ GitHub của bạn 🔥
